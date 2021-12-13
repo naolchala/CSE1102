@@ -1,22 +1,32 @@
+/* 
+* Write a program that determines the sum of numbers supplied by user. 
+* The numbers are known to lie within -9999 and 9999. An entry out of this range is considered as an end of entry(sentinel value). 
+* Use break.
+*/
+
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    double sum = 0, num;
-start:
-    cout << "Enter Number: ";
-    cin >> num;
-    if (num > 9999 || num < -9999)
+    double sum, num;
+
+    while (true)
     {
-        cout << endl
-             << "Sum = " << sum << endl;
-    }
-    else
-    {
+        cout << "Enter Number: ";
+        cin >> num;
+
+        if (num < -9999 || num > 9999)
+        {
+            break;
+        }
+
         sum += num;
-        cout << "Current Sum = " << sum << endl;
-        goto start;
+        cout << "Current sum = " << sum << endl;
     }
+
+    cout << endl
+         << endl
+         << "Sum = " << sum << endl;
     return 0;
 }

@@ -1,39 +1,44 @@
-/**
- * An experiment data contains range of positive n values. 
- * The experimenter is interested in those values that lies between 100 and 500. 
- * He/she wants the average of the numbers in this range. 
- * Write a program that calculates this sum.  
- * Use continue.
- */
-
 #include <iostream>
 using namespace std;
 
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+int lcm(int a, int b)
+{
+    return int(double(a) * b / gcd(a, b));
+}
+
 int main()
 {
-    int n;
-    double val, total = 0, average;
-    cout << "Enter the data cout: ";
-    cin >> n;
+    int a, b;
 
-    for (int i = 0; i < n; i++)
+    do
     {
-        cout << "Enter Value " << i + 1 << ": ";
-        cin >> val;
+        cout << "Enter two numbers to find their LCM and GCD: ";
+        cin >> a >> b;
 
-        if (val > 500 || val < 100)
+        if (a == 0 && b == 0)
         {
+            break;
+        }
+
+        if (a > 0 && b > 0)
+        {
+            cout << "GCD(" << a << ", " << b << ") = " << gcd(a, b) << endl;
+            cout << "LCM(" << a << ", " << b << ") = " << lcm(a, b) << endl;
+        }
+        else
+        {
+            cout << "the numbers should be positive " << endl;
             continue;
         }
 
-        total += val;
-    }
-
-    average = total / n;
-
-    cout << endl;
-    cout << "Sum = " << total << endl;
-    cout << "Average = " << average << endl;
+    } while (true);
 
     return 0;
 }

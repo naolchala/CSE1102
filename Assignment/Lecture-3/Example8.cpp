@@ -15,7 +15,8 @@ int main()
     {
         cout << "Enter Student " << i << " Grade (A - F): ";
         cin >> grade;
-
+        if (grade >= 'a' && grade <= 'z')
+            grade -= 32;
         data[grade] += 1;
     }
 
