@@ -1,32 +1,44 @@
-/* 
-* Write a program that determines the sum of numbers supplied by user. 
-* The numbers are known to lie within -9999 and 9999. An entry out of this range is considered as an end of entry(sentinel value). 
-* Use break.
-*/
-
 #include <iostream>
 using namespace std;
 
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+int lcm(int a, int b)
+{
+    return int(double(a) * b / gcd(a, b));
+}
+
 int main()
 {
-    double sum, num;
+    int a, b;
 
-    while (true)
+    do
     {
-        cout << "Enter Number: ";
-        cin >> num;
+        cout << "Enter two numbers to find their LCM and GCD: ";
+        cin >> a >> b;
 
-        if (num < -9999 || num > 9999)
+        if (a == 0 && b == 0)
         {
             break;
         }
 
-        sum += num;
-        cout << "Current sum = " << sum << endl;
-    }
+        if (a > 0 && b > 0)
+        {
+            cout << "GCD(" << a << ", " << b << ") = " << gcd(a, b) << endl;
+            cout << "LCM(" << a << ", " << b << ") = " << lcm(a, b) << endl;
+        }
+        else
+        {
+            cout << "the numbers should be positive " << endl;
+            continue;
+        }
 
-    cout << endl
-         << endl
-         << "Sum = " << sum << endl;
+    } while (true);
+
     return 0;
 }

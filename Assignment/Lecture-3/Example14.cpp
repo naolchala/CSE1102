@@ -1,22 +1,24 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main()
 {
-    double num;
-    do
+    for (int i = 1; i <= 5; i++)
     {
-        cout << "Enter a number to Calculate Square root(0 to quit): ";
-        cin >> num;
-
-        if (num < 0)
+        for (int j = 1; j <= 5; j++)
         {
-            cout << "the number should be positive" << endl;
-            continue;
+            if (j > i)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << j << " ";
+            }
         }
 
-        cout << "Square root of " << num << " = " << sqrt(num) << endl;
-    } while (num != 0);
+        cout << endl;
+    }
+
     return 0;
 }

@@ -1,37 +1,32 @@
-/**
- * An experiment data contains range of positive n values. 
- * The experimenter is interested in those values that lies between 100 and 500. 
- * He/she wants the average of the numbers in this range. 
- * Write a program that calculates this sum.  
- * Use continue.
- */
+/* 
+* Write a program that determines the sum of numbers supplied by user. 
+* The numbers are known to lie within -9999 and 9999. An entry out of this range is considered as an end of entry(sentinel value). 
+* Use break.
+*/
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int n;
-    double val, total = 0, average;
-    cout << "Enter the data cout: ";
-    cin >> n;
+    double sum, num;
 
-    for (int i = 0; i < n; i++)
+    while (true)
     {
-        cout << "Enter Value " << i + 1 << ": ";
-        cin >> val;
+        cout << "Enter Number: ";
+        cin >> num;
 
-        if (val > 500 || val < 100)
-            continue;
+        if (num < -9999 || num > 9999)
+        {
+            break;
+        }
 
-        total += val;
+        sum += num;
+        cout << "Current sum = " << sum << endl;
     }
 
-    average = total / n;
-
-    cout << endl;
-    cout << "Sum = " << total << endl;
-    cout << "Average = " << average << endl;
-
+    cout << endl
+         << endl
+         << "Sum = " << sum << endl;
     return 0;
 }

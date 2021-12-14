@@ -1,44 +1,22 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-
-int gcd(int a, int b)
-{
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-
-int lcm(int a, int b)
-{
-    return int(double(a) * b / gcd(a, b));
-}
 
 int main()
 {
-    int a, b;
-
+    double num;
     do
     {
-        cout << "Enter two numbers to find their LCM and GCD: ";
-        cin >> a >> b;
+        cout << "Enter a number to Calculate Square root(0 to quit): ";
+        cin >> num;
 
-        if (a == 0 && b == 0)
+        if (num < 0)
         {
-            break;
-        }
-
-        if (a > 0 && b > 0)
-        {
-            cout << "GCD(" << a << ", " << b << ") = " << gcd(a, b) << endl;
-            cout << "LCM(" << a << ", " << b << ") = " << lcm(a, b) << endl;
-        }
-        else
-        {
-            cout << "the numbers should be positive " << endl;
+            cout << "the number should be positive" << endl;
             continue;
         }
 
-    } while (true);
-
+        cout << "Square root of " << num << " = " << sqrt(num) << endl;
+    } while (num != 0);
     return 0;
 }
